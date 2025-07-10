@@ -12,16 +12,16 @@ edition = "2021"
 cortex-m = { version = "0.7.7" }
 # u5-lib = {git = "ssh://gitea@git.ggeta.com:2002/guangzong/u5_new.git", features = ["utils"], rev= "c7bbfd1593"}
 # u5-lib = {git = "ssh://git@github.com:22/chen-gz/stm32u5lib.git", features = ["utils"], rev="8fec3af"}
-#u5-lib = { git = "https://github.com/chen-gz/stm32u5lib.git", features = [
-#u5-lib = { git = "https://github.com/chen-gz/stm32u5lib.git", features = [
-#    "utils",
-#    "stm32u575zi",
-#], branch = "dev", default-features = false }
- u5-lib = { path = "../stm32u5lib", features = [
-     "utils",
-     # "stm32u5a5zj",
-#     "stm32u575zi",
- ], default-features = false }
+# u5-lib = { git = "https://github.com/chen-gz/stm32u5lib.git", features = [
+u5-lib = { git = "https://github.com/chen-gz/stm32u5lib.git", features = [
+    "utils",
+    "stm32u575zi",
+], branch = "dev", default-features = false }
+#  u5-lib = { path = "../stm32u5lib", features = [
+#      "utils",
+#      # "stm32u5a5zj",
+# #     "stm32u575zi",
+#  ], default-features = false }
 
 
 defmt = "0.3.6"
