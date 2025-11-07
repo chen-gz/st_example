@@ -1,10 +1,6 @@
-#![feature(noop_waker)]
 #![no_std]
 #![no_main]
-#![feature(type_alias_impl_trait)]
-#![feature(impl_trait_in_assoc_type)]
 
-use core::hint::spin_loop;
 use defmt_rtt as _;
 use u5_lib::*;
 const GREEN: gpio::GpioPort = gpio::PB7;
@@ -13,7 +9,8 @@ const GREEN: gpio::GpioPort = gpio::PB7;
 #[cortex_m_rt::entry]
 fn main() -> ! {
     low_power::Executor::take().run(|spawner| {
-        clock::init_clock(false, true, 4_000_000, true, clock::ClockFreqs::KernelFreq160Mhz);
+        // clock::init_clock(false, true, 4_000_000, true, clock::ClockFreqs::KernelFreq160Mhz);
+        clock::init_clock(true, clock::ClockFreqs::KernelFreq160Mhz);
         GREEN.setup();
         u5_lib::rtc::enable_rtc_read();
         defmt::info!("setup led finished!");

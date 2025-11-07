@@ -68,3 +68,33 @@ src = "src/bin/led_block.rs"
 name = "led_block"
 test = false
 bench = false
+
+[[bin]]
+src = "src/bin/i2c.rs"
+name = "i2c"
+test = false
+bench = false
+
+[[bin]]
+src = "src/bin/pwm.rs"
+name = "pwm"
+test = false
+bench = false
+
+[[bin]]
+src = "src/bin/rtc.rs"
+name = "rtc"
+test = false
+bench = false
+
+[[bin]]
+src = "src/bin/usart.rs"
+name = "usart"
+test = false
+bench = false
+
+[[bin]]
+src = "src/bin/usb.rs"
+name = "usb"
+test = false
+bench = false

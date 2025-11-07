@@ -1,8 +1,5 @@
-#![feature(noop_waker)]
 #![no_std]
 #![no_main]
-#![feature(type_alias_impl_trait)]
-#![feature(impl_trait_in_assoc_type)]
 
 use defmt_rtt as _;
 use dma::DCMI_DMA;
@@ -72,7 +69,6 @@ async fn btn() {
 // i2c.write(drivers::ov5640::ov5640_reg::OV5640_I2C_ADDR, &reg_val)
 //     .unwrap();
 // clock::delay_ms(200);
-
 
 // use stm32_metapac::RCC;
 // fn setup_cam_clk() {

@@ -1,4 +1,3 @@
-#![feature(noop_waker)]
 #![no_std]
 #![no_main]
 use cortex_m_rt::entry;
@@ -14,13 +13,7 @@ fn setup() {
 
 #[entry]
 fn main() -> ! {
-    clock::init_clock(
-        false,
-        false,
-        4_000_000,
-        true,
-        clock::ClockFreqs::KernelFreq4Mhz,
-    );
+    clock::init_clock(true, clock::ClockFreqs::KernelFreq4Mhz);
     setup();
     defmt::info!("setup led finished!");
     loop {

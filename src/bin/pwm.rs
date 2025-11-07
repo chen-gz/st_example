@@ -1,8 +1,5 @@
-// #![feature(noop_waker)]
 #![no_std]
 #![no_main]
-#![feature(type_alias_impl_trait)]
-#![feature(impl_trait_in_assoc_type)]
 
 use defmt_rtt as _;
 use embassy_executor::Spawner;
@@ -18,13 +15,7 @@ const BLUE: GpioPort = gpio::PB7;
 #[cortex_m_rt::entry]
 fn main() -> ! {
     Executor::take().run(|spawner| {
-        clock::init_clock(
-            false,
-            true,
-            160_000_000,
-            true,
-            clock::ClockFreqs::KernelFreq160Mhz,
-        );
+        clock::init_clock(true, clock::ClockFreqs::KernelFreq160Mhz);
         TIM1_CH2_PA9.setup();
         TIM1_CH3_PA10.setup();
         TIM3_CH1_PA6.setup();

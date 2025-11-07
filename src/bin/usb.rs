@@ -1,12 +1,10 @@
 #![no_std]
 #![no_main]
-#![feature(type_alias_impl_trait)]
-#![feature(impl_trait_in_assoc_type)]
 
 use core::time::Duration;
 use defmt_rtt as _;
-use u5_lib::*;
 use u5_lib::hal::Pin;
+use u5_lib::*;
 
 const GREEN: gpio::GpioPort = gpio::PB7;
 
@@ -20,7 +18,7 @@ use u5_lib::otg_fs::power::power_up_init;
 #[cortex_m_rt::entry]
 fn main() -> ! {
     Executor::take().run(|spawner| {
-        clock::init_clock(false, true, 16_000_000, true, clock::ClockFreqs::KernelFreq160Mhz);
+        clock::init_clock(true, clock::ClockFreqs::KernelFreq160Mhz);
         low_power::no_deep_sleep_request();
         GREEN.setup();
         u5_lib::rtc::enable_rtc_read();
